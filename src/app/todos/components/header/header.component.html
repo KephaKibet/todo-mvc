@@ -1,0 +1,5 @@
+<header>
+  <h1>My Todos</h1>
+  <input class="new-todo" type="text" placeholder="What needs to be done?" [value]="text" (keyup)="changeText($event)"
+    (keyup.enter)="addToto()" autoFocus>
+</header>
