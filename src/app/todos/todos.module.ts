@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { TodosComponent } from './components/todos/todos.component';
 import { HeaderComponent } from './components/header/header.component';
+import { TodosService } from './services/todos.service';
 
 
 const routes: Routes = [
@@ -17,7 +18,9 @@ const routes: Routes = [
   declarations: [TodosComponent, HeaderComponent],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
-  ]
+    RouterModule.forChild(routes)],
+    providers: [
+      TodosService
+    ]
 })
 export class TodosModule { }
