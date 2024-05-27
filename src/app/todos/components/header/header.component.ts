@@ -8,7 +8,7 @@ import { TodosService } from '../../services/todos.service';
 export class HeaderComponent {
   text: string = '';
   constructor(private todoService: TodosService) { 
-    });
+   
   }
   changeText(event: Event) {
     const target = event.target as HTMLInputElement;
