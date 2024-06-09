@@ -14,7 +14,7 @@ export class TodosService {
     const newTodo: TodoInterface = {
       id: Math.random().toString(16).slice(2),
       text,
-      isCompleted: true
+      isCompleted: false
     };
     const updatedTodos = [...this.todos$.getValue(), newTodo];
     this.todos$.next(updatedTodos);
@@ -29,5 +29,8 @@ export class TodosService {
     });
     console.log("updatedTodos",updatedTodos);
     this.todos$.next(updatedTodos);
+  }
+  changeFilter(filterName: FilterEnum): void{
+    this.filter$.next(filterName);
   }
 }
