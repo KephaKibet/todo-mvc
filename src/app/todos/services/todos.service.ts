@@ -46,4 +46,21 @@ export class TodosService {
     });
     this.todos$.next(updatedTodos);
   }
+  removeTodo(id: string): void {
+    const updatedTodos = this.todos$.getValue().filter(todo => todo.id !== id);
+    this.todos$.next(updatedTodos);
+  }
+
+  toggleTodo(id: string): void {
+    const updatedTodos = this.todos$.getValue().map(todo => {
+      if (todo.id === id) {
+        return {
+          ...todo,
+          isCompleted: !todo.isCompleted
+        }
+      }
+      return todo;
+    });
+    this.todos$.next(updatedTodos);
+  }
 }
