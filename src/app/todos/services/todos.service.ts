@@ -33,4 +33,17 @@ export class TodosService {
   changeFilter(filterName: FilterEnum): void{
     this.filter$.next(filterName);
   }
+
+  changeTodo(id: string, text: string): void {
+    const updatedTodos = this.todos$.getValue().map(todo => {
+      if (todo.id === id) {
+        return {
+          ...todo,
+          text
+        }
+      }
+      return todo;
+    });
+    this.todos$.next(updatedTodos);
+  }
 }
